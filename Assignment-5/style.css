@@ -1,0 +1,124 @@
+.road {
+    background-image: url("road.jpg");
+    display: flex;
+    align-items: center;
+    width:640px;
+    height: 100vh;
+    margin-left: 20%;
+    animation: moveRoad 4s linear infinite;
+    trans
+     
+}
+
+#car {
+    position: relative;
+    width:10%;
+    margin-left: 290px;
+    margin-top: 70%;
+    animation: carMove 0.5s ease-in-out;
+}
+
+
+
+
+/* Button styling */
+.control {
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-left: 80%;
+    width: 10%;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+body div > button {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-color: black;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+  
+/* Obstacle styling */
+.obstacle {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    border-radius: 5px;
+    top: -50px; 
+    animation: moveObstacle 3s linear infinite;
+}
+  
+/* Predefined positions for the obstacles */
+.obstacle:nth-child(3) { 
+    left: 800px; 
+    animation-delay: 6s;
+}
+  
+.obstacle:nth-child(4) { 
+    left: 590px; 
+    animation-delay: 2s;
+}
+  
+.obstacle:nth-child(2) { 
+    left: 28%; 
+    animation-delay: 4s; 
+}
+  
+@keyframes moveObstacle {
+    0% {
+      top: -50px; /* Start off-screen */
+    }
+    100% {
+      top: 100vh; /* Move off the screen */
+    }
+}
+
+.leftbutton, .rightbutton {
+    display: inline-block;
+    position: fixed;
+    bottom: 20px;
+}
+.rightbutton {
+    left: 60px;
+}
+
+
+
+.leftbutton :hover, .rightbutton :hover {
+    background-color: blue;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    animation: leftbutton 0.5s ease-in-out;
+    /* transform: scale(-2); */
+}
+
+.rightbutton:hover~ .road > #car{
+    transform: translateX(200px);
+}
+
+.leftbutton:hover~ .road > #car{
+    transform: translateX(-200px);
+}
+
+
+@keyframes moveRoad {
+    100% {
+      background-position-y: 0;
+    }
+    100% {
+      background-position-y: 300%;
+    }
+}
+
+

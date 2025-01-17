@@ -1,0 +1,41 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: black;
+}
+  
+li {
+    float: left;
+}
+  
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+  
+li a:hover:not(.active) {
+    background-color: #111;
+}
+  
+.active {
+    background-color:rgb(152, 171, 219) ;
+}
+
+#searchbar {
+    float: right;
+    padding: 14px 16px;
+    border: none;
+    outline: none;
+    font-size: 17px;
+    background-color: white;
+    transition: width 0.4s ease;
+}

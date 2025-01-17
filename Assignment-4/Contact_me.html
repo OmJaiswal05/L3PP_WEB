@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <title>Contact Om</title>
+    <link rel="stylesheet" href="contact.css">
+  </head>
+<body>
+
+  <nav>
+    <div class="nav-left">
+      <a  href="index.html"><img src="image7.png" alt="Web_Logo" height="15%" width="15%"></a>
+    </div>
+    <div class="nav-right">
+      <a href="images.html">
+        <button>VIEW IMAGES</button>
+      </a>
+      <a href="videos.html">
+        <button>INTERESTING VIDEOS</button>
+      </a>
+    </div>
+  </nav>
+  
+  <div class="container">
+    <h1>Contact Form</h1>
+    <form action="/submit_contact_form" method="POST">
+      <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+      <label for="phone">Phone Number:</label>
+        <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+      <label for="email">Email ID:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+      <label>Gender:</label>
+        <div class="gender-options">
+          <input type="radio" id="male" name="gender" value="Male">
+      <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="Female">
+      <label for="female">Female</label>
+        <input type="radio" id="other" name="gender" value="Other">
+      <label for="other">Other</label>
+        </div>
+
+      <label for="message">Message:</label>
+        <textarea id="message" name="message" placeholder="Enter your message here..." required></textarea>
+
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+  </div>
+
+</body>
+</html>

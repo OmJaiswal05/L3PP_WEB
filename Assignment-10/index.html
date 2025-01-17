@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Ordering Menu</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🍴 Food Ordering System</h1>
+        </header>
+
+        <main>
+            <!-- Menu Section -->
+            <div class="menu">
+                <h2>📋 Menu</h2>
+                <form id="menuForm">
+                    <div class="item">
+                        <img src="burger.webp" alt="Burger">
+                        <div>
+                            <input type="checkbox" id="burger" name="burger" value="5.00" onchange="updateChecklist()">
+                            <label for="burger">Burger</label>
+                            <span class="price">$5.00</span>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="pizza.jpg" alt="Pizza">
+                        <div>
+                            <input type="checkbox" id="pizza" name="pizza" value="8.00" onchange="updateChecklist()">
+                            <label for="pizza">Pizza</label>
+                            <span class="price">$8.00</span>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="pasta.avif" alt="Pasta">
+                        <div>
+                            <input type="checkbox" id="pasta" name="pasta" value="7.50" onchange="updateChecklist()">
+                            <label for="pasta">Pasta</label>
+                            <span class="price">$7.50</span>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="salad.jpg" alt="Salad">
+                        <div>
+                            <input type="checkbox" id="salad" name="salad" value="4.00" onchange="updateChecklist()">
+                            <label for="salad">Salad</label>
+                            <span class="price">$4.00</span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Checklist Section -->
+            <div class="checklist">
+                <h2>📝 Your Selection</h2>
+                <ul id="checklist"></ul>
+            </div>
+
+            <!-- Order Button -->
+            <button id="orderButton">🛒 Place Order</button>
+
+            <!-- Receipt Section -->
+            <div class="receipt">
+                <h2>🧾 Receipt</h2>
+                <ul id="receiptList"></ul>
+                <div class="total">
+                    <span>Total (with 18% GST):</span>
+                    <span id="total">$0.00</span>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Foodie's Delight. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+
+function updateChecklist() {
+    const form = document.getElementById('menuForm');
+    const items = form.querySelectorAll('input[type="checkbox"]:checked');
+    const checklist = document.getElementById('checklist');
+
+    checklist.innerHTML = ''; // Clear previous checklist
+
+    items.forEach(item => {
+        const itemName = item.id.charAt(0).toUpperCase() + item.id.slice(1); // Capitalize item name
+
+        // Add item to checklist
+        const li = document.createElement('li');
+        li.textContent = itemName;
+        checklist.appendChild(li);
+    });
+}
+
+document.getElementById('orderButton').addEventListener('click', generateReceipt);
+
+function generateReceipt() {
+    const form = document.getElementById('menuForm');
+    const items = form.querySelectorAll('input[type="checkbox"]:checked');
+    const receiptList = document.getElementById('receiptList');
+    let total = 0;
+
+    receiptList.innerHTML = ''; // Clear previous receipt
+
+    items.forEach(item => {
+        const itemName = item.id.charAt(0).toUpperCase() + item.id.slice(1); // Capitalize item name
+        const itemPrice = parseFloat(item.value);
+
+        total += itemPrice;
+
+        // Add item to receipt
+        const li = document.createElement('li');
+        li.textContent = `${itemName} - $${itemPrice.toFixed(2)}`;
+        receiptList.appendChild(li);
+    });
+
+    // Calculate GST and final total
+    const gst = total * 0.18;
+    const finalTotal = total + gst;
+
+    // Update total with GST
+    document.getElementById('total').textContent = `$${finalTotal.toFixed(2)}`;
+
+    // Show the receipt section
+    document.querySelector('.receipt').style.display = 'block';
+
+    // Clear selections
+    form.reset();
+    updateChecklist(); // Clear the checklist
+}
+
+    </script>
+</body>
+</html>

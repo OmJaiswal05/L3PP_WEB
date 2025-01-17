@@ -1,0 +1,110 @@
+nav button {
+    background-color: black;
+    color: white;
+    border: solid 1px;
+    border-color: yellow;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 8px;
+    float: left;
+}
+
+button:hover {
+    color: black;
+    background-color: yellow;
+    transition:cubic-bezier(1, 0, 0, 1) 0.5s ease-in-out;
+  }
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+nav {
+    padding: 10px 0px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: black;
+    z-index: 1000;
+    border: solid 1px;
+    border-color: yellow;
+    border-radius: 20px;
+}
+  
+  
+.nav-left {
+    display: inline-block;
+    width: 45%;
+}
+
+.nav-left img {
+    padding-left: 2px;
+    cursor: pointer;
+}
+  
+.nav-right {
+    text-align: end;
+    display: inline-block;
+    width: 50%;
+}
+  
+.nav-right a {
+    display: inline-block;
+    text-align: right;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    position: center;
+}
+
+.contact button {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background-color: black;
+    cursor: pointer;
+}
+
+.contact button :hover {
+    background-color: black;
+}
+
+.contact button {
+    display: inline-block;
+    position: fixed;
+    left: 89%;
+    top: 90%;
+    padding: 8px;
+    border: none;
+    z-index: 1000;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid yellow;
+    padding: 15px;
+}
+
+iframe {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: white;
+    background-color: black;
+}
+
+h1 {
+    text-align: center;
+    color: yellow;
+}
